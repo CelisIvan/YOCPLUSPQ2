@@ -4,10 +4,33 @@
 {% block title %}Login{% endblock %}
 
 {% block content %}
-<h2>Login</h2>
-<form method="post">
-  {% csrf_token %}
-  {{ form.as_p }}
-  <button type="submit">Login</button>
-</form>
+<br>
+<div class="container" style="background:#e0e0e0">
+  <form class="text-center border border-light p-5" action="#!">
+
+    <p class="h4 mb-4">Inicio de Sesión</p>
+    <img  height="180px" width="180x" src="https://www.searchpng.com/wp-content/uploads/2019/02/User-Icon-PNG-715x715.png" alt="User Image">
+    <!-- Email -->
+    <br>
+    <br>
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    <div class="d-flex justify-content-around">
+
+        <div>
+            <!-- Forgot password -->
+            <a href="">Olvidé mi contrseña</a>
+        </div>
+    </div>
+
+    <!-- Sign in button -->
+    <button class="btn btn-primary" type="submit">Iniciar Sesión</button>
+    <hr>
+    <!-- Register -->
+    <p>No tengo una cuenta, soy nuevo<br>
+        <a href="">Registrarme</a>
+    </p>
+</div>
+
 {% endblock %}

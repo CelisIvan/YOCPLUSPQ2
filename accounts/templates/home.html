@@ -1,13 +1,20 @@
 
 {% extends 'base.html' %}
 
-{% block title %}Home{% endblock %}
+{% block title %}Página Principal{% endblock %}
 
 {% block content %}
 {% if user.is_authenticated %}
   Hi {{ user.username }}!
 {% else %}
-  <p>You are not logged in</p>
-  <a href="{% url 'login' %}">login</a>
+  <div class="container">
+    <div class="card">
+        <div class="card-body">
+          <h1><p>You are not logged in</p></h1>
+          <hr>
+          <a class="card-link" href="{% url 'login' %}">login</a>
+        </div>
+    </div>
+  </div>
 {% endif %}
 {% endblock %}

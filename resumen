@@ -1,0 +1,24 @@
+Application Program Interface
+
+
+URI : Identificador único del recurso
+
+Se consulta através de un endpoint (url)
+
+Códigos de Estado
+
+
+MÉTODOS HTTP
+Get: solicitar info
+Post: enviar información
+put: actualizar info
+delete: borrar
+
+JSON, XML, Texto Plano
+
+hateoas: la api se autodescribe sobre los recursos
+siguientes, totales y anteriores
+
+Seguridad:
+
+test
