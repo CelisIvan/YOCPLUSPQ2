@@ -1,12 +1,13 @@
-<!-- templates/registration/login.html -->
+
 {% extends 'base.html' %}
 
 {% block title %}Login{% endblock %}
 
+{% load crispy_forms_tags %}
 {% block content %}
 <br>
 <div class="container" style="background:#e0e0e0">
-  <form class="text-center border border-light p-5" action="#!">
+  <form method="post" class="text-center border border-light p-5" action="#!">
 
     <p class="h4 mb-4">Inicio de Sesión</p>
     <img  height="180px" width="180x" src="https://www.searchpng.com/wp-content/uploads/2019/02/User-Icon-PNG-715x715.png" alt="User Image">
@@ -14,7 +15,7 @@
     <br>
     <br>
     {% csrf_token %}
-    {{ form.as_p }}
+    {{ form|crispy}}
 
     <div class="d-flex justify-content-around">
 
@@ -29,7 +30,7 @@
     <hr>
     <!-- Register -->
     <p>No tengo una cuenta, soy nuevo<br>
-        <a href="">Registrarme</a>
+        <a href="/accounts/register">Registrarme</a>
     </p>
 </div>
 
