@@ -4,7 +4,7 @@ from .models import *
 from .forms import RegisterForm
 
 def home(request):
-    return render(request,'registration/login.html')
+    return render(request,'home.html')
 
 def register(request):
     if request.method == "POST":
