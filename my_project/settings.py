@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'my_project',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -39,7 +40,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     'django.contrib.staticfiles',
     'accounts.apps.AccountsConfig',
-    
+
 ]
 
 MIDDLEWARE = [
@@ -135,4 +136,3 @@ TIME_ZONE = 'UTC'
 CRISPY_TEMPLATE_PACK="bootstrap4"
 
 LOGIN_REDIRECT_URL="/"
-LOGOUT_REDIRECT_URL="/"

@@ -5,12 +5,19 @@
 
 {% block content %}
 {% if user.is_authenticated %}
- <div class="container" style="background: #efefef">
-  <div class="p-5">
-      Hi {{ user.username }}!
+<br>
+<div class="container">
+  <div class="">
   </div>
- </div>
-  <a href="/logout">Logout</a>
+</div>
+  <div class="container" style="background:#e0e0e0">
+
+    <div class="p-5">
+      <h2>
+        Hi {{ user.username }}!
+      </h2>
+    </div>
+  </div>
 {% else %}
   <div class="container">
     <div class="card">
