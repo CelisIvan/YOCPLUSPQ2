@@ -25,6 +25,9 @@
         <div class="container">
           <div class="p-5 mx-auto">
             <h3>Aquí se van a ir mostrando los Eventos</h3>
+            {% for evento in eventos%}
+              <h1>{{evento.nombre}}</h1>
+            {%endfor%}
           </div>
         </div>
       </div>

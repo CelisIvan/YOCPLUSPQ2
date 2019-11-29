@@ -19,7 +19,8 @@ def register(request):
 
 def eventos(request):
     if request.method  == "GET":
-        return render(request,"eventos.html")
+        eventos=Evento.objects.all()
+        return render(request,"eventos.html",{'eventos':eventos})
 
 def register_event(request):
     if request.method == "GET":
