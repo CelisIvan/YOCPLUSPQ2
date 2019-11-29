@@ -32,6 +32,8 @@ class Evento(models.Model):
     siglas = models.CharField(max_length=50)
     fecha = models.DateField()
     asistentes = models.IntegerField()
+    def __str__(self):
+        return self.nombre
 
 class Boleto(models.Model):
     codigo = models.CharField(max_length=50)
