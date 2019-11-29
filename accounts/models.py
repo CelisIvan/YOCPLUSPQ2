@@ -1,16 +1,27 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.db.models.signals import post_save
+from django.dispatch import receiver
 
 # Create your models here.
 
 class Estado(models.Model):
     nombre = models.CharField(max_length = 50)
+    def __str__(self):
+        return self.nombre
 
-class Person(models.Model):
-    edad = models.IntegerField()
-    empresa = models.CharField(max_length=50)
-    estado = models.ForeignKey(Estado, on_delete=models.CASCADE)
-    user_id = models.OneToOneField(User, on_delete=models.CASCADE,primary_key=True, related_name='info')
+class Profile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    age = models.IntegerField(blank=True,null=True)
+    empresa = models.CharField(max_length=50, blank=True)
+    estado = models.ForeignKey(Estado, on_delete=models.CASCADE, null=True)
+
+@receiver(post_save, sender=User)
+def update_user_profile(sender, instance, created, **kwargs):
+    if created:
+        Profile.objects.create(user=instance)
+    instance.profile.save()
+
 
 
 class Evento(models.Model):
