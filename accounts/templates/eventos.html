@@ -18,17 +18,26 @@
     <title>Eventos</title>
   </head>
   <body style="background:#1c2a48">
+    <br><br>
       <div class="container" style="background:#e0e0e0">
         <div class="p-5" >
           <h1><p class="text-dark">Eventos</p></h1>
         </div>
-        <div class="container">
-          <div class="p-5 mx-auto">
-            <h3>Aquí se van a ir mostrando los Eventos</h3>
-            {% for evento in eventos%}
-              <h1>{{evento.nombre}}</h1>
-            {%endfor%}
-          </div>
+        <hr>
+        <div class="p-3">
+          <div class="container">
+            <div class="row">
+            <div class="col-sm">
+              <h3>Nombre</h3>
+            </div>
+            <div class="col-sm">
+              <button type="button" name="button"class="btn btn-primary">Consultar</button>
+            </div>
+            <div class="col-sm">
+              <button type="button" name="button"class="btn btn-primary">Anotarse</button>
+            </div>
+            </div>
+            </div>
         </div>
       </div>
   </body>
