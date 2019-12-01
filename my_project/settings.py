@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'crispy_forms',
     'django.contrib.staticfiles',
     'accounts.apps.AccountsConfig',
+    'rest_framework',
+
 
 ]
 
