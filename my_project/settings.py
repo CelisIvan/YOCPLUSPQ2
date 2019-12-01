@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'crispy_forms',
     'django.contrib.staticfiles',
     'accounts.apps.AccountsConfig',
+    'rest_framework',
+
 
 ]
 
@@ -136,3 +138,4 @@ TIME_ZONE = 'UTC'
 CRISPY_TEMPLATE_PACK="bootstrap4"
 
 LOGIN_REDIRECT_URL="/"
+LOGOUT_REDIRECT_URL="/"

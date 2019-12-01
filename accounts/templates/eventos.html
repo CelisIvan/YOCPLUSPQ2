@@ -24,21 +24,40 @@
           <h1><p class="text-dark">Eventos</p></h1>
         </div>
         <hr>
+        {% if user.is_authenticated %}
         <div class="p-3">
+            {% for evento in eventos %}
           <div class="container">
+              
             <div class="row">
             <div class="col-sm">
-              <h3>Nombre</h3>
+              
+              <h3>{{evento.nombre}}</h3>
             </div>
             <div class="col-sm">
-              <button type="button" name="button"class="btn btn-primary">Consultar</button>
+              <a href="/"><button type="button" name="button"class="btn btn-primary">Consultar</button></a>
             </div>
             <div class="col-sm">
               <button type="button" name="button"class="btn btn-primary">Anotarse</button>
             </div>
+            
             </div>
             </div>
+            
         </div>
+          {% endfor %}
+        
+        {% else %}
+          
+            <div class="card">
+              <div class="card-body">
+                <h1><p>You are not logged in</p></h1>
+                <hr>
+                <a class="card-link" href="{% url 'login' %}">login</a>
+              </div>
+          </div>
+        
+      {% endif %}
       </div>
   </body>
 </html>

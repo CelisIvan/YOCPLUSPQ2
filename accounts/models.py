@@ -32,9 +32,13 @@ class Evento(models.Model):
     siglas = models.CharField(max_length=50)
     fecha = models.DateField()
     asistentes = models.IntegerField()
+    def __str__(self):
+        return self.nombre
 
 class Boleto(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
     codigo = models.CharField(max_length=50)
     evento = models.ForeignKey(Evento, on_delete=models.CASCADE)
+
 
 
