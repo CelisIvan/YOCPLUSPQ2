@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+   <!-- <link href="css/mdb.min.css" rel="stylesheet"> -->
+   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+  <!-- Bootstrap core CSS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Material Design Bootstrap -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.11/css/mdb.min.css" rel="stylesheet">
+   <!-- Required meta tags -->
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Eventos</title>
+  </head>
+  <body style="background:#1c2a48">
+    <br><br>
+      <div class="container" style="background:#e0e0e0">
+        <div class="p-5" >
+          <h1><p class="text-dark">Eventos</p></h1>
+        </div>
+        <hr>
+        {% if user.is_authenticated %}
+        <div class="p-3">
+            {% for evento in eventos %}
+          <div class="container">
+              
+            <div class="row">
+            <div class="col-sm">
+              
+              <h3>{{evento.nombre}}</h3>
+            </div>
+            <div class="col-sm">
+              <a href="{% url 'evento-detail' evento.id %}"><button type="button" name="button"class="btn btn-primary">Consultar</button></a>
+            </div>
+            <div class="col-sm">
+              
+                <button type="button" name="button"class="btn btn-primary">Anotado</button>
+              
+                <a href="{% url 'evento-inscribirse' evento.id %}"><button type="button" name="button"class="btn btn-primary">Anotarse</button></a>
+              
+              </div>
+            
+            </div>
+            </div>
+            
+        </div>
+          {% endfor %}
+        
+        {% else %}
+          
+            <div class="card">
+              <div class="card-body">
+                <h1><p>You are not logged in</p></h1>
+                <hr>
+                <a class="card-link" href="{% url 'login' %}">login</a>
+              </div>
+          </div>
+        
+      {% endif %}
+      </div>
+  </body>
+</html>
