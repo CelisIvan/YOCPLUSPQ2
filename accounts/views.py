@@ -34,7 +34,12 @@ def eventos(request):
         if User.is_authenticated:
             eventos=Evento.objects.all()
             boletos=Boleto.objects.all()
-            return render(request,"accounts/eventos.html",{'eventos':eventos , 'boletos':boletos})
+            boletos_usuario= Boleto.objects.filter(user=request.user)
+            myList=[]
+            for b in boletos_usuario:
+                myList.append(b.evento.id)
+                
+            return render(request,"accounts/eventos.html",{'eventos':eventos , 'boletos':boletos,'myList':myList})
         else:
              return redirect("/") 
         
@@ -54,7 +59,8 @@ def event_add_attendance(request, pk):
         
         return render(request,"inscription.html",{'this_event':this_event,'flag':flag,'boleto':boleto})
     else:
-        return render(request,"inscription.html",{'this_event':this_event,'flag':flag})
+        boleto = Boleto.objects.filter(evento=this_event,user=user_id)
+        return render(request,"inscription.html",{'this_event':this_event,'flag':flag,'boleto':boleto})
 
 class EventDetailView(DetailView):
     model = Evento

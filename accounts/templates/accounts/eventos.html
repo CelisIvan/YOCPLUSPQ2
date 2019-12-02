@@ -38,11 +38,11 @@
               <a href="{% url 'evento-detail' evento.id %}"><button type="button" name="button"class="btn btn-primary">Consultar</button></a>
             </div>
             <div class="col-sm">
-              
-                <button type="button" name="button"class="btn btn-primary">Anotado</button>
-              
+              {% if evento.id in myList%}
+              <a href="{% url 'evento-inscribirse' evento.id %}"><button type="button" name="button"class="btn btn-primary">Anotado</button></a>
+              {% else %}
                 <a href="{% url 'evento-inscribirse' evento.id %}"><button type="button" name="button"class="btn btn-primary">Anotarse</button></a>
-              
+              {% endif %}
               </div>
             
             </div>

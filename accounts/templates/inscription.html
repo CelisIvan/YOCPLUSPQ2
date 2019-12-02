@@ -7,9 +7,12 @@
         <div class="card">
             <div class="card-body">
                 {% if flag %}
-                    <h1>No te puedes anotar de nuevo, ya estas inscrito al evento {{this_event.nombre}}</h1>
+                    <h1>Ya estabas inscrito al evento {{this_event.nombre}}</h1>
+                    {% for b in boleto%}
+                        <h2>Tu codigo de boleto es: {{b.id}}</h2>
+                    {%endfor%}
                 {% else %}
-                    <h1>Te haz inscrito al evento: {{this_event.nombre}}</h1>
+                    <h1>Te haz inscrito exitosamente al evento: {{this_event.nombre}}</h1>
                     {% for b in boleto%}
                         <h2>Tu codigo de boleto es: {{b.id}}</h2>
                     {%endfor%}
