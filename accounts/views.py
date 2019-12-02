@@ -54,7 +54,8 @@ def event_add_attendance(request, pk):
     
     flag = Boleto.objects.filter(evento=this_event,user=user_id).exists()
     if not Boleto.objects.filter(evento=this_event,user=user_id).exists():
-        add_user_to_list_of_attendees(self=this_event, user=request.user)
+        c=str(this_event.siglas)+str(user_id.id)
+        add_user_to_list_of_attendees(self=this_event, user=request.user,codigo=c)
         boleto = Boleto.objects.filter(evento=this_event,user=user_id)
         
         return render(request,"inscription.html",{'this_event':this_event,'flag':flag,'boleto':boleto})

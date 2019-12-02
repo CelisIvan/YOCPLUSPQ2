@@ -3,18 +3,25 @@
 {% block title %}Inscripcion Exitosa{% endblock %}
 
 {% block content %}
+<br><br>
+    <div class="container">
+      <div class="mx-auto" style="width:400px">
+        <h1><p class="text-light">Registro a Evento</p></h1>
+      </div>
+    </div>
+    <br><br>
 <div class="container">
         <div class="card">
             <div class="card-body">
                 {% if flag %}
                     <h1>Ya estabas inscrito al evento {{this_event.nombre}}</h1>
                     {% for b in boleto%}
-                        <h2>Tu codigo de boleto es: {{b.id}}</h2>
+                        <h2>Tu codigo de boleto es: {{b.codigo}}</h2>
                     {%endfor%}
                 {% else %}
                     <h1>Te haz inscrito exitosamente al evento: {{this_event.nombre}}</h1>
                     {% for b in boleto%}
-                        <h2>Tu codigo de boleto es: {{b.id}}</h2>
+                        <h2>Tu codigo de boleto es: {{b.codigo}}</h2>
                     {%endfor%}
                 {% endif %}
               <hr>

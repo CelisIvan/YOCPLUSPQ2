@@ -38,12 +38,12 @@ class Evento(models.Model):
 
 class Boleto(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE,null=True)
-    codigo = models.DateTimeField()
+    codigo = models.CharField(max_length=50)
     evento = models.ForeignKey(Evento, on_delete=models.CASCADE, null=True)
     
 
-def add_user_to_list_of_attendees(self, user):
-    registration = Boleto.objects.create(user = user,evento = self, codigo = timezone.now())
+def add_user_to_list_of_attendees(self, user,codigo):
+    registration = Boleto.objects.create(user = user,evento = self, codigo = codigo)
     registration.save()
 
                
